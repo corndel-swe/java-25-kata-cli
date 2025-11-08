@@ -1,7 +1,6 @@
 package org.kata.tania;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Challenge - Permutations Palindrome
@@ -25,6 +24,9 @@ import java.util.Set;
 public class PermutationsPalindrome {
 
     public static boolean isPalindrome(String word) {
+
+
+
         return true;
     }
 

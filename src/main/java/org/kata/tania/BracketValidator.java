@@ -1,5 +1,10 @@
 package org.kata.tania;
 
+import java.io.FilterOutputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
 public class BracketValidator {
 
     /**
@@ -15,6 +20,22 @@ public class BracketValidator {
      * {@code false} otherwise
      */
     public boolean validate(String input) {
-        return false;
+
+
+        Stack<String> stacks = new Stack<>();
+        for (char string: input.toCharArray()){
+            if(String.valueOf(string).equals("(")) {
+                stacks.push(String.valueOf(string));
+            }
+        }
+
+
+
+        return false; }
+
+    public static void main(String[] args) {
+        BracketValidator bracketValidator = new BracketValidator();
+        bracketValidator.validate("(Hello)");
     }
 }
+
