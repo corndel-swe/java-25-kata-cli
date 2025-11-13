@@ -1,9 +1,7 @@
 package org.kata.tania;
 
 import java.io.FilterOutputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class BracketValidator {
 
@@ -21,17 +19,29 @@ public class BracketValidator {
      */
     public boolean validate(String input) {
 
+        //creating map of bracket pairs
+        Map <Character, Character> brackets = new HashMap<>();
+        brackets.put(')','(');
+        brackets.put(']','[');
+        brackets.put('>','<');
+        brackets.put('}','{');
 
-        Stack<String> stacks = new Stack<>();
-        for (char string: input.toCharArray()){
-            if(String.valueOf(string).equals("(")) {
-                stacks.push(String.valueOf(string));
-            }
+
+        // created an empty stack
+        Stack<Character> stack = new Stack<>();
+
+        for (char ch : input.toCharArray()){
+
+            //Opening Brackets are pushed into the stack
+            if (brackets.containsValue(ch)){
+                stack.push(ch);}
+
+            //Closing Brackets are popped and compared to the original
+            else if (brackets.containsKey(ch)){
+                if (stack.pop() != brackets.get(ch)){
+                    return false;}}
         }
-
-
-
-        return false; }
+        return stack.isEmpty();}
 
     public static void main(String[] args) {
         BracketValidator bracketValidator = new BracketValidator();

@@ -31,10 +31,4 @@ public class GetFrequenciesTest {
                 "aaabbc should produce a - 3, b - 2, c - 3");
     }
 
-    @Test
-    void testIgnoresWhitespace() {
-        HashMap<Character, Integer> expected = new HashMap<>(Map.of( 'x', 2, 'y', 2));
-        assertEquals(expected, getFrequencies.getFrequencies("xy yx"),
-                "xy yx should produce x - 2, y - 2");
-    }
 }

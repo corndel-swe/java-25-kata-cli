@@ -1,6 +1,7 @@
 package org.kata.tania;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class GetFrequencies {
 
@@ -16,7 +17,15 @@ public class GetFrequencies {
      */
 
     public HashMap<Character, Integer> getFrequencies(String inputString) {
-        return new HashMap<>();
+        Map<Character, Integer> counter = new HashMap<>();
+
+        for (char c: inputString.toCharArray()){
+            counter.put(c,counter.getOrDefault(c,0)+1);// default value of 0 created
+            // cannot call empty values in hashmaps without calling a nullpointer error
+        }
+
+
+        return new HashMap<>(counter);
     }
 
 }

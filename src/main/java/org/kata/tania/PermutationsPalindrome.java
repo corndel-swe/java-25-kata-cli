@@ -24,9 +24,15 @@ import java.util.*;
 public class PermutationsPalindrome {
 
     public static boolean isPalindrome(String word) {
+        Map<Character, Integer> counter = new HashMap<>();
+
+        for (char c: word.toCharArray()){
+            counter.put(c,counter.getOrDefault(c,0)+1);// default value of 0 created
+            if (!counter.containsKey(c) && counter.get(c) > 1){
+                return false;}
 
 
-
+        }
         return true;
     }
 
