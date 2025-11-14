@@ -17,18 +17,22 @@ public class LargestPrime {
      */
 
     public int getLargestPrime(int n) {
-        if ( n < 2) {return -1;}
-        if (n == 2) {return n;}
+        if ( n < 2) {return -1;} // not prime
+        if (n == 2) {return n;} // is prime
+
+        //checking isPrime characteristics from decrementing int n
         for (int i = n; i > 2; i--) {
             if (isPrime(i)) {return i;}
         }
 
    return -1;}
 
+    //created a Boolean method to check prime criteria
     private boolean isPrime (int num) {
         if (num < 2) {return false;}
         if (num == 2) {return true;}
         if (num % 2 == 0) {return false;}
+        // Checking all odd numbers up to num if they are Prime (starting from 3)
         for (int i = 3; i*i <= num; i+=2) {
             if(num%i ==0) {return false;}
 

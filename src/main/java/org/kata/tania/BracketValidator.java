@@ -41,7 +41,7 @@ public class BracketValidator {
                 if (stack.pop() != brackets.get(ch)){
                     return false;}}
         }
-        return stack.isEmpty();}
+        return true;}
 
     public static void main(String[] args) {
         BracketValidator bracketValidator = new BracketValidator();
