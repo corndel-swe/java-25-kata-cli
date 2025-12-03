@@ -1,6 +1,6 @@
 package org.kata.tania;
 
-import java.io.FilterOutputStream;
+
 import java.util.*;
 
 public class BracketValidator {
@@ -20,32 +20,45 @@ public class BracketValidator {
     public boolean validate(String input) {
 
         //creating map of bracket pairs
-        Map <Character, Character> brackets = new HashMap<>();
-        brackets.put(')','(');
-        brackets.put(']','[');
-        brackets.put('>','<');
-        brackets.put('}','{');
+        Map<Character, Character> brackets = new HashMap<>();
+        brackets.put('(', ')');
+        brackets.put('[', ']');
+        brackets.put('<', '>');
+        brackets.put('{', '}');
 
 
         // created an empty stack
         Stack<Character> stack = new Stack<>();
 
-        for (char ch : input.toCharArray()){
+        for (char ch : input.toCharArray()) {
 
             //Opening Brackets are pushed into the stack
-            if (brackets.containsValue(ch)){
-                stack.push(ch);}
+            if (brackets.containsKey(ch)) {
+                stack.push(ch);
+            }
+
 
             //Closing Brackets are popped and compared to the original
-            else if (brackets.containsKey(ch)){
-                if (stack.pop() != brackets.get(ch)){
-                    return false;}}
+           if (brackets.containsValue(ch)) {
+                if (stack.pop() != brackets.get(ch)) {
+                    return false;
+                }
+               if (stack.isEmpty()) {
+                   return false;
+               }
+                // Checks for Empty Stack or if closing bracket doesn't match the bracket
+
+
+
+            }
         }
-        return true;}
+
+        return stack.isEmpty();
+    }
+
 
     public static void main(String[] args) {
-        BracketValidator bracketValidator = new BracketValidator();
-        bracketValidator.validate("(Hello)");
+        BracketValidator validator = new BracketValidator();
+        validator.validate(")Hello)");
     }
 }
-
