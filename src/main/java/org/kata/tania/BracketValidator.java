@@ -1,5 +1,9 @@
 package org.kata.tania;
 
+
+import java.util.*;
+
+
 public class BracketValidator {
 
     /**
@@ -15,6 +19,57 @@ public class BracketValidator {
      * {@code false} otherwise
      */
     public boolean validate(String input) {
-        return false;
+
+        //creating map of bracket pairs
+        Map<Character, Character> brackets = new HashMap<>();
+        brackets.put('(', ')');
+        brackets.put('[', ']');
+        brackets.put('{', '}');
+
+
+        // empty stack
+        Stack<Character> stack = new Stack<>();
+
+
+
+
+
+        for (char ch : input.toCharArray()) {
+
+            //Opening Brackets are pushed into the stack
+            if (brackets.containsKey(ch)) {
+                stack.push(ch);}
+
+            // Ignore Characters in Alphabet
+            else if (Character.isLowerCase(ch)){
+                continue;}
+
+            //Closing Brackets are popped and compared to the original
+           if (brackets.containsValue(ch)) {
+
+               // top of the Stack
+               char top = stack.peek();
+
+               if (stack.isEmpty()){return false;}
+
+               if (ch != brackets.get(top)){
+                   return false;}
+
+
+               stack.pop();
+           }
+
+
+        }
+       return true;
+
+
+
+    }
+
+
+    public static void main(String[] args) {
+        BracketValidator validator = new BracketValidator();
+        validator.validate("()");
     }
 }

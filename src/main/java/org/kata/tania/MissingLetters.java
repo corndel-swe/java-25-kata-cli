@@ -1,5 +1,8 @@
 package org.kata.tania;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MissingLetters {
 
     /**
@@ -16,7 +19,26 @@ public class MissingLetters {
      * - Non-alphabetical characters (numbers, spaces, punctuation) are ignored.
      */
     public String getMissingLetters(String word) {
-        return "abcdefghijklmnopqrstuvwxyz";
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        word = word.toLowerCase();
+
+        //Using StringBuilder to remove letters in loop
+        StringBuilder sb = new StringBuilder(alphabet);
+        for (char c : word.toCharArray()) {
+            int index = sb.indexOf(String.valueOf(c));
+            if (index != -1) {sb.deleteCharAt(index);}
+            // remove letter; flags letter as not found as opposed to index value (1) = found and remove, (-1) = not found and skipped
+
+
+
+
+
+        }//if no letters are missing, return empty String using Tenary Operator
+        return sb.isEmpty() ? "": sb.toString();
+
     }
+
 }
+
+
 

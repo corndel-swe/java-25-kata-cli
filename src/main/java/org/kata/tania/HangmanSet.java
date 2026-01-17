@@ -34,6 +34,10 @@ public class HangmanSet {
      * @throws IllegalArgumentException if the given letter is not a letter or has already been guessed.
      */
     public boolean guess(char letter) throws IllegalArgumentException {
+        Set<String> letters = new HashSet<>();
+        for (char c : word.toCharArray()) {
+            letters.add(String.valueOf(c));
+        }
         return true;
     }
 
@@ -43,7 +47,7 @@ public class HangmanSet {
      * @return a set of characters representing the guessed letters
      */
     public Set<Character> getGuessedLetters() {
-        return null;
+        return guessedLetters;
     }
 
     /**
@@ -52,7 +56,8 @@ public class HangmanSet {
      * @return a set of characters representing the remaining letters to be guessed
      */
     public Set<Character> getRemainingLetters() {
-        return null;
+        Set<Character> remaining = new HashSet<>();
+        return remaining;
     }
 
     /**
@@ -61,7 +66,7 @@ public class HangmanSet {
      * @return true if all letters in the word have been guessed, false otherwise
      */
     public boolean isWordGuessed() {
-        return true;
+        return false;
     }
 }
 

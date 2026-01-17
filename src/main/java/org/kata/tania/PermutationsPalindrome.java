@@ -1,7 +1,6 @@
 package org.kata.tania;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Challenge - Permutations Palindrome
@@ -25,7 +24,23 @@ import java.util.Set;
 public class PermutationsPalindrome {
 
     public static boolean isPalindrome(String word) {
-        return true;
-    }
+        Map<Character, Integer> counter = new HashMap<>();
 
+
+// Counting the occurrence of letters into Hashmap
+        for (char c: word.toCharArray()){
+            counter.put(c,counter.getOrDefault(c,0)+1);}// default value of 0 created
+
+        // Checking count is odd
+        int odd = 0;
+        for (int i : counter.values()){
+        if (i % 2 != 0) odd++;}
+
+        if (odd > 2){return false;}
+
+
+// returns true for permutation palindrome to occur
+        return true;  }
 }
+
+

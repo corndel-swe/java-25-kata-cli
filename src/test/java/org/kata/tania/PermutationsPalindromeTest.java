@@ -12,19 +12,19 @@ public class PermutationsPalindromeTest {
         assertTrue(PermutationsPalindrome.isPalindrome("civic"), "civic is a Palindrome should return true");
     }
 
-    @Disabled
+
     @Test
     public void permutationPalindromeShouldReturnTrue() {
         assertTrue(PermutationsPalindrome.isPalindrome("ivicc"), "ivicc is a Permutation Palindrome should return true");
     }
 
-    @Disabled
+
     @Test
     public void notPalindromeShouldReturnFalse() {
         assertFalse(PermutationsPalindrome.isPalindrome("civil"), "civil is not a Palindrome/Permutation Palindrome should return false");
     }
 
-    @Disabled
+
     @Test
     public void notPermutationPalindromeShouldReturnFalse() {
         assertFalse(PermutationsPalindrome.isPalindrome("livci"), "livci is not a Palindrome/Permutation Palindrome should return false");

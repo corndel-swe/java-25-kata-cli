@@ -1,5 +1,8 @@
 package org.kata.tania;
 
+
+import static java.lang.Integer.compare;
+
 /**
  * The Comparable interface defines a class's natural sorting order by allowing objects to be compared based on a custom comparison logic in the compareTo method.
  * It is implemented by classes like String, Integer, and enums, allowing them to define ordering for consistent comparisons.
@@ -48,12 +51,20 @@ public class PlayingCard implements Comparable<PlayingCard> {
      */
     @Override
     public int compareTo(PlayingCard playingCard) {
-        return -1;
+        int suitComparison = this.suit.compareTo(playingCard.suit);
+        //Returns -1,0,1 depending on condition
+        if (suitComparison != 0) {return suitComparison;}
+
+        return Integer.compare(this.value, playingCard.value);
+
+
+
+
     }
+
 
     public static void main(String[] args) {
 
-        // CODE PLAYGROUND - DON'T FORGET THE TESTS ;)
 
         PlayingCard aceOfSpades = new PlayingCard(Suit.SPADES, 14, "A");
         PlayingCard aceOfHearts = new PlayingCard(Suit.HEARTS, 14, "A");

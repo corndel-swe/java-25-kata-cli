@@ -23,13 +23,13 @@ public class HangmanSetTest {
     }
 
 
-    @Disabled
+
     @Test
     public void guessIncorrectLetterShouldReturnFalse() {
         assertFalse(hangmanSet.guess('z'));
     }
 
-    @Disabled
+
     @Test
     public void guessNonLetterShouldThrowIllegalArgumentException() {
         Character[] nonLetters = {'1', '.', ' ', '@'};
@@ -38,7 +38,7 @@ public class HangmanSetTest {
         }
     }
 
-    @Disabled
+
     @Test
     public void guessAlreadyGuessedLetterShouldThrowIllegalArgumentException() {
         hangmanSet.guess('h');
@@ -47,7 +47,7 @@ public class HangmanSetTest {
         assertThrows(IllegalArgumentException.class, () -> hangmanSet.guess('l'));
     }
 
-    @Disabled
+
     @Test
     public void getGuessedLettersShouldReturnGuessedLetters() {
         hangmanSet.guess('h');
@@ -62,7 +62,7 @@ public class HangmanSetTest {
         assertEquals(4, guessedLetters.size());
     }
 
-    @Disabled
+
     @Test
     public void getRemainingLettersShouldReturnRemainingLetters() {
         hangmanSet.guess('a');
@@ -75,7 +75,7 @@ public class HangmanSetTest {
         }
     }
 
-    @Disabled
+   
     @Test
     public void isWordGuessedWordGuessedShouldReturnTrue() {
         hangmanSet.guess('h');
@@ -85,7 +85,7 @@ public class HangmanSetTest {
         assertTrue(hangmanSet.isWordGuessed());
     }
 
-    @Disabled
+
     @Test
     public void isWordGuessedWordNotGuessedShouldReturnFalse() {
         hangmanSet.guess('h');
