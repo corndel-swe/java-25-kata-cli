@@ -52,8 +52,9 @@ public class PlayingCard implements Comparable<PlayingCard> {
     @Override
     public int compareTo(PlayingCard playingCard) {
         int suitComparison = this.suit.compareTo(playingCard.suit);
+        //If Order differs
         if (suitComparison != 0) {return suitComparison;}
-
+        //If Order is the same
         return Integer.compare(this.value, playingCard.value);
 
 
